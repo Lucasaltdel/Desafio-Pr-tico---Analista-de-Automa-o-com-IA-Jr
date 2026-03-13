@@ -1,0 +1,19 @@
+id,cliente,canal,tipo,prioridade,descricao,email,telefone,created_at
+1001,Drogaria Santa Lúcia,whatsapp,incidente,,Integração ERP retornando erro 500 ao finalizar pedido.,,11987654321,2026-03-01T09:12:00-03:00
+1002,Farmácia Bom Preço,email,suporte,media,Dúvida sobre relatório de vendas no painel.,cs@bompreco.com.br,,2026-03-01T10:05:33-03:00
+1003,Drogaria Central,site,financeiro,,Solicitação de 2ª via de nota fiscal do mês anterior.,financeiro@drogariacentral.com.br,,2026-03-01T11:44:10-03:00
+1004,Farmácia Vida+,whatsapp,melhoria,,Sugestão: incluir campo de observação do atendente no resumo do pedido.,,11991234567,2026-03-01T12:20:00-03:00
+1005,Drogaria Popular,site,incidente,ALTA,Pedidos não chegam no ERP desde 08:00.,ti@drogariapopular.com.br,,2026-03-02T08:31:04-03:00
+1006,Farmácia São Jorge,email,suporte,baixa,,contato@saojorge.com.br,,2026-03-02T09:10:00-03:00
+1007,Drogaria Horizonte,email,financeiro,,Atualização cadastral para faturamento.,financeiro#horizonte.com.br,,2026-03-02T10:02:15-03:00
+1008,Farmácia Bem Estar,whatsapp,suporte,,Atendente não consegue acessar a conta.,,1198765,2026-03-02T10:47:00-03:00
+1009,Drogaria União,site,incidente,,"Carrinho não finaliza, usuário recebe mensagem genérica.",,,2026-03-02T11:15:00-03:00
+1010,Farmácia Alfa,email,melhoria,,Adicionar filtro por canal no dashboard.,produto@alfa.com.br,,2026-13-02T11:15:00-03:00
+1011,Drogaria Estrela,whatsapp,suporte,,Cliente relata lentidão ao carregar lista de produtos.,,21999887766,2026-03-02T13:05:27-03:00
+1012,Farmácia Saúde Total,whatsapp,financeiro,media,Confirmação de pagamento e liberação de acesso.,,31988776655,2026-03-02T14:22:00-03:00
+1013,Drogaria Primavera,site,melhoria,baixa,Permitir exportar pedidos em CSV.,operacoes@primavera.com.br,,2026-03-03T09:01:00-03:00
+1014,Farmácia Rede Mais,whatsapp,incidente,,SIMULAR_FALHA_ENVIO: Webhook de confirmação não retorna 200.,,11970001122,2026-03-03T09:33:12-03:00
+1015,Drogaria Saúde & Cia,email,suporte,,SIMULAR_FALHA_ENVIO: Erro intermitente no login do atendente.,suporte@saudecia.com.br,,2026-03-03T10:18:45-03:00
+1003,Drogaria Central,site,financeiro,,DUPLICADO: Solicitação reenviada por engano.,financeiro@drogariacentral.com.br,,2026-03-03T10:22:00-03:00
+1001,Drogaria Santa Lúcia,whatsapp,incidente,,DUPLICADO: Mesmo incidente reportado novamente.,,11987654321,2026-03-03T10:30:00-03:00
+1016,Farmácia Pague Menos Aqui,site,suporte,media,Erro ao gerar link de pagamento no checkout.,ti@paguemenosaqui.com.br,11981112233,2026-03-03T11:05:00-03:00

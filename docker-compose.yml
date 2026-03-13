@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+
+  api:
+    build: .
+    container_name: api_mock
+    ports:
+      - "8000:8000"
+
+  processor:
+    build: .
+    container_name: csv_processor
+    command: python main.py
+    depends_on:
+      - api

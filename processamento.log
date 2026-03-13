@@ -1,0 +1,149 @@
+2026-03-13 19:23:39,802 | INFO | iniciando processamento do arquivo
+2026-03-13 19:23:39,818 | INFO | id=1001 | lendo linha
+2026-03-13 19:23:39,821 | INFO | id=1001 | iniciando validação
+2026-03-13 19:23:39,821 | INFO | id=1001 | classificado | queue=N1-INCIDENTES | prioridade=alta
+2026-03-13 19:23:39,821 | INFO | id=1001 | enviando para API
+2026-03-13 19:23:39,834 | INFO | id=1001 | status=sucesso | queue=N1-INCIDENTES | prioridade=alta | tentativas=1
+2026-03-13 19:23:39,843 | INFO | id=1002 | lendo linha
+2026-03-13 19:23:39,846 | INFO | id=1002 | iniciando validação
+2026-03-13 19:23:39,847 | INFO | id=1002 | classificado | queue=N1-SUPORTE | prioridade=media
+2026-03-13 19:23:39,847 | INFO | id=1002 | enviando para API
+2026-03-13 19:23:39,863 | INFO | id=1002 | status=sucesso | queue=N1-SUPORTE | prioridade=media | tentativas=1
+2026-03-13 19:23:39,869 | INFO | id=1003 | lendo linha
+2026-03-13 19:23:39,872 | INFO | id=1003 | iniciando validação
+2026-03-13 19:23:39,873 | INFO | id=1003 | classificado | queue=BACKOFFICE-FIN | prioridade=media
+2026-03-13 19:23:39,873 | INFO | id=1003 | enviando para API
+2026-03-13 19:23:39,878 | INFO | id=1003 | status=sucesso | queue=BACKOFFICE-FIN | prioridade=media | tentativas=1
+2026-03-13 19:23:39,885 | INFO | id=1004 | lendo linha
+2026-03-13 19:23:39,887 | INFO | id=1004 | iniciando validação
+2026-03-13 19:23:39,888 | INFO | id=1004 | classificado | queue=PRODUTO | prioridade=baixa
+2026-03-13 19:23:39,888 | INFO | id=1004 | enviando para API
+2026-03-13 19:23:39,912 | INFO | id=1004 | status=sucesso | queue=PRODUTO | prioridade=baixa | tentativas=1
+2026-03-13 19:23:39,918 | INFO | id=1005 | lendo linha
+2026-03-13 19:23:39,921 | INFO | id=1005 | iniciando validação
+2026-03-13 19:23:39,921 | INFO | id=1005 | classificado | queue=N1-INCIDENTES | prioridade=alta
+2026-03-13 19:23:39,922 | INFO | id=1005 | enviando para API
+2026-03-13 19:23:39,927 | INFO | id=1005 | status=sucesso | queue=N1-INCIDENTES | prioridade=alta | tentativas=1
+2026-03-13 19:23:39,933 | INFO | id=1006 | lendo linha
+2026-03-13 19:23:39,936 | INFO | id=1006 | iniciando validação
+2026-03-13 19:23:39,936 | ERROR | id=1006 | status=erro_validacao | erro=campo obrigatório ausente: descricao
+2026-03-13 19:23:39,943 | INFO | id=1007 | lendo linha
+2026-03-13 19:23:39,946 | INFO | id=1007 | iniciando validação
+2026-03-13 19:23:39,946 | ERROR | id=1007 | status=erro_validacao | erro=email inválido
+2026-03-13 19:23:39,953 | INFO | id=1008 | lendo linha
+2026-03-13 19:23:39,956 | INFO | id=1008 | iniciando validação
+2026-03-13 19:23:39,956 | ERROR | id=1008 | status=erro_validacao | erro=telefone inválido (somente números >=10)
+2026-03-13 19:23:39,963 | INFO | id=1009 | lendo linha
+2026-03-13 19:23:39,966 | INFO | id=1009 | iniciando validação
+2026-03-13 19:23:39,966 | ERROR | id=1009 | status=erro_validacao | erro=incidente sem meio de contato
+2026-03-13 19:23:39,972 | INFO | id=1010 | lendo linha
+2026-03-13 19:23:39,974 | INFO | id=1010 | iniciando validação
+2026-03-13 19:23:39,974 | ERROR | id=1010 | status=erro_validacao | erro=data inválida
+2026-03-13 19:23:39,981 | INFO | id=1011 | lendo linha
+2026-03-13 19:23:39,984 | INFO | id=1011 | iniciando validação
+2026-03-13 19:23:39,985 | INFO | id=1011 | classificado | queue=N1-SUPORTE | prioridade=baixa
+2026-03-13 19:23:39,985 | INFO | id=1011 | enviando para API
+2026-03-13 19:23:40,012 | INFO | id=1011 | status=sucesso | queue=N1-SUPORTE | prioridade=baixa | tentativas=1
+2026-03-13 19:23:40,018 | INFO | id=1012 | lendo linha
+2026-03-13 19:23:40,021 | INFO | id=1012 | iniciando validação
+2026-03-13 19:23:40,021 | INFO | id=1012 | classificado | queue=BACKOFFICE-FIN | prioridade=media
+2026-03-13 19:23:40,021 | INFO | id=1012 | enviando para API
+2026-03-13 19:23:40,026 | INFO | id=1012 | status=sucesso | queue=BACKOFFICE-FIN | prioridade=media | tentativas=1
+2026-03-13 19:23:40,033 | INFO | id=1013 | lendo linha
+2026-03-13 19:23:40,036 | INFO | id=1013 | iniciando validação
+2026-03-13 19:23:40,036 | INFO | id=1013 | classificado | queue=PRODUTO | prioridade=baixa
+2026-03-13 19:23:40,037 | INFO | id=1013 | enviando para API
+2026-03-13 19:23:40,042 | INFO | id=1013 | status=sucesso | queue=PRODUTO | prioridade=baixa | tentativas=1
+2026-03-13 19:23:40,049 | INFO | id=1014 | lendo linha
+2026-03-13 19:23:40,052 | INFO | id=1014 | iniciando validação
+2026-03-13 19:23:40,052 | INFO | id=1014 | classificado | queue=N1-INCIDENTES | prioridade=alta
+2026-03-13 19:23:40,052 | INFO | id=1014 | enviando para API
+2026-03-13 19:23:40,079 | INFO | id=1014 | status=sucesso | queue=N1-INCIDENTES | prioridade=alta | tentativas=1
+2026-03-13 19:23:40,086 | INFO | id=1015 | lendo linha
+2026-03-13 19:23:40,088 | INFO | id=1015 | iniciando validação
+2026-03-13 19:23:40,089 | INFO | id=1015 | classificado | queue=N1-SUPORTE | prioridade=baixa
+2026-03-13 19:23:40,089 | INFO | id=1015 | enviando para API
+2026-03-13 19:23:40,094 | INFO | id=1015 | status=sucesso | queue=N1-SUPORTE | prioridade=baixa | tentativas=1
+2026-03-13 19:23:40,102 | INFO | id=1003 | lendo linha
+2026-03-13 19:23:40,105 | INFO | id=1003 | já processado anteriormente
+2026-03-13 19:23:40,105 | INFO | id=1001 | lendo linha
+2026-03-13 19:23:40,106 | INFO | id=1001 | já processado anteriormente
+2026-03-13 19:23:40,106 | INFO | id=1016 | lendo linha
+2026-03-13 19:23:40,107 | INFO | id=1016 | iniciando validação
+2026-03-13 19:23:40,108 | INFO | id=1016 | classificado | queue=N1-SUPORTE | prioridade=media
+2026-03-13 19:23:40,108 | INFO | id=1016 | enviando para API
+2026-03-13 19:23:40,114 | INFO | id=1016 | status=sucesso | queue=N1-SUPORTE | prioridade=media | tentativas=1
+2026-03-13 19:24:23,770 | INFO | iniciando processamento do arquivo
+2026-03-13 19:24:23,821 | INFO | id=1001 | lendo linha
+2026-03-13 19:24:23,846 | INFO | id=1001 | já processado anteriormente
+2026-03-13 19:24:23,870 | INFO | id=1002 | lendo linha
+2026-03-13 19:24:23,871 | INFO | id=1002 | já processado anteriormente
+2026-03-13 19:24:23,917 | INFO | id=1003 | lendo linha
+2026-03-13 19:24:23,919 | INFO | id=1003 | já processado anteriormente
+2026-03-13 19:24:23,944 | INFO | id=1004 | lendo linha
+2026-03-13 19:24:23,945 | INFO | id=1004 | já processado anteriormente
+2026-03-13 19:24:23,973 | INFO | id=1005 | lendo linha
+2026-03-13 19:24:23,975 | INFO | id=1005 | já processado anteriormente
+2026-03-13 19:24:23,997 | INFO | id=1006 | lendo linha
+2026-03-13 19:24:23,998 | INFO | id=1006 | já processado anteriormente
+2026-03-13 19:24:23,999 | INFO | id=1007 | lendo linha
+2026-03-13 19:24:24,001 | INFO | id=1007 | já processado anteriormente
+2026-03-13 19:24:24,001 | INFO | id=1008 | lendo linha
+2026-03-13 19:24:24,004 | INFO | id=1008 | já processado anteriormente
+2026-03-13 19:24:24,004 | INFO | id=1009 | lendo linha
+2026-03-13 19:24:24,006 | INFO | id=1009 | já processado anteriormente
+2026-03-13 19:24:24,007 | INFO | id=1010 | lendo linha
+2026-03-13 19:24:24,009 | INFO | id=1010 | já processado anteriormente
+2026-03-13 19:24:24,009 | INFO | id=1011 | lendo linha
+2026-03-13 19:24:24,010 | INFO | id=1011 | já processado anteriormente
+2026-03-13 19:24:24,011 | INFO | id=1012 | lendo linha
+2026-03-13 19:24:24,013 | INFO | id=1012 | já processado anteriormente
+2026-03-13 19:24:24,014 | INFO | id=1013 | lendo linha
+2026-03-13 19:24:24,016 | INFO | id=1013 | já processado anteriormente
+2026-03-13 19:24:24,018 | INFO | id=1014 | lendo linha
+2026-03-13 19:24:24,020 | INFO | id=1014 | já processado anteriormente
+2026-03-13 19:24:24,021 | INFO | id=1015 | lendo linha
+2026-03-13 19:24:24,023 | INFO | id=1015 | já processado anteriormente
+2026-03-13 19:24:24,023 | INFO | id=1003 | lendo linha
+2026-03-13 19:24:24,026 | INFO | id=1003 | já processado anteriormente
+2026-03-13 19:24:24,026 | INFO | id=1001 | lendo linha
+2026-03-13 19:24:24,030 | INFO | id=1001 | já processado anteriormente
+2026-03-13 19:24:24,030 | INFO | id=1016 | lendo linha
+2026-03-13 19:24:24,033 | INFO | id=1016 | já processado anteriormente
+2026-03-13 19:32:55,932 | INFO | iniciando processamento do arquivo
+2026-03-13 19:32:55,935 | INFO | id=1001 | lendo linha
+2026-03-13 19:32:55,937 | INFO | id=1001 | já processado anteriormente
+2026-03-13 19:32:55,938 | INFO | id=1002 | lendo linha
+2026-03-13 19:32:55,940 | INFO | id=1002 | já processado anteriormente
+2026-03-13 19:32:55,941 | INFO | id=1003 | lendo linha
+2026-03-13 19:32:55,943 | INFO | id=1003 | já processado anteriormente
+2026-03-13 19:32:55,944 | INFO | id=1004 | lendo linha
+2026-03-13 19:32:55,947 | INFO | id=1004 | já processado anteriormente
+2026-03-13 19:32:55,948 | INFO | id=1005 | lendo linha
+2026-03-13 19:32:55,951 | INFO | id=1005 | já processado anteriormente
+2026-03-13 19:32:55,956 | INFO | id=1006 | lendo linha
+2026-03-13 19:32:55,960 | INFO | id=1006 | já processado anteriormente
+2026-03-13 19:32:55,961 | INFO | id=1007 | lendo linha
+2026-03-13 19:32:55,963 | INFO | id=1007 | já processado anteriormente
+2026-03-13 19:32:55,964 | INFO | id=1008 | lendo linha
+2026-03-13 19:32:55,967 | INFO | id=1008 | já processado anteriormente
+2026-03-13 19:32:55,970 | INFO | id=1009 | lendo linha
+2026-03-13 19:32:55,973 | INFO | id=1009 | já processado anteriormente
+2026-03-13 19:32:55,974 | INFO | id=1010 | lendo linha
+2026-03-13 19:32:55,976 | INFO | id=1010 | já processado anteriormente
+2026-03-13 19:32:55,978 | INFO | id=1011 | lendo linha
+2026-03-13 19:32:55,981 | INFO | id=1011 | já processado anteriormente
+2026-03-13 19:32:55,982 | INFO | id=1012 | lendo linha
+2026-03-13 19:32:55,984 | INFO | id=1012 | já processado anteriormente
+2026-03-13 19:32:55,984 | INFO | id=1013 | lendo linha
+2026-03-13 19:32:55,986 | INFO | id=1013 | já processado anteriormente
+2026-03-13 19:32:55,988 | INFO | id=1014 | lendo linha
+2026-03-13 19:32:55,990 | INFO | id=1014 | já processado anteriormente
+2026-03-13 19:32:55,990 | INFO | id=1015 | lendo linha
+2026-03-13 19:32:55,992 | INFO | id=1015 | já processado anteriormente
+2026-03-13 19:32:55,992 | INFO | id=1003 | lendo linha
+2026-03-13 19:32:55,995 | INFO | id=1003 | já processado anteriormente
+2026-03-13 19:32:55,995 | INFO | id=1001 | lendo linha
+2026-03-13 19:32:55,997 | INFO | id=1001 | já processado anteriormente
+2026-03-13 19:32:55,998 | INFO | id=1016 | lendo linha
+2026-03-13 19:32:55,999 | INFO | id=1016 | já processado anteriormente
