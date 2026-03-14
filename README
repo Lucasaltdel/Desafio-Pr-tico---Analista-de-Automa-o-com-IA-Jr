@@ -8,12 +8,15 @@ O sistema também registra o status de processamento em um banco **SQLite**, gar
 
 # Arquitetura da solução
 
+<p align="center">
+  <img src="docs/fluxograma.jpg" width="700">
+</p>
+
 Fluxo do sistema:
 
 CSV → Script de Processamento → Validação → Classificação → API → Registro no SQLite
 
 Etapas:
-
 
 
 1. Leitura do arquivo `solicitacoes.csv`
