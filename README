@@ -242,6 +242,27 @@ Campos:
 * ultimo_erro
 * timestamp_processamento
 
+Para visualizar os dados processados é possível utilizar o SQLite CLI.
+
+Abrir o banco:
+
+sqlite3 processamento.db
+
+Listar tabelas:
+
+.tables
+
+Visualizar registros:
+
+.headers on
+.mode column
+SELECT * FROM processamento;
+
+Exemplo de saída:
+
+id    status    tentativas    ultimo_erro    timestamp_processamento
+1001  sucesso   1             null           2026-03-13T19:30:21
+
 ---
 
 # Logs
