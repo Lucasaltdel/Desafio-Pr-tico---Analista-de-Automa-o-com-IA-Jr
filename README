@@ -14,7 +14,7 @@ CSV → Script de Processamento → Validação → Classificação → API → 
 
 Etapas:
 
-
+![Fluxograma](docs/fluxograma.jpg)
 
 1. Leitura do arquivo `solicitacoes.csv`
 2. Validação dos dados obrigatórios
