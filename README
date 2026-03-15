@@ -132,7 +132,7 @@ pip install -r requirements.txt
 ### 1. Iniciar a API
 
 ```
-uvicorn api_mock:app --reload
+python -m uvicorn api_mock:app --reload
 ```
 
 A API ficará disponível em:
