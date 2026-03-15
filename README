@@ -1,7 +1,4 @@
 # Processador de Solicitações CSV
-=======
-Processador de Solicitações CSV
-
 
 Projeto desenvolvido para processar solicitações de clientes a partir de um arquivo **CSV**, validar os dados, classificar prioridade e encaminhar as solicitações para uma **API REST**.
 
@@ -10,7 +7,7 @@ O sistema também registra o status de processamento em um banco **SQLite**, gar
 ---
 
 # Arquitetura da solução
-=======
+
 Rastreabilidade → histórico de sucesso e erros
 
 Logs detalhados de execução
@@ -110,7 +107,7 @@ O Docker irá:
 ### Acessar a documentação da API
 
 Após subir o container:
-=======
+
 construir a imagem do projeto
 
 subir o container da API
@@ -141,7 +138,7 @@ Caso o usuário não possua Docker instalado, o projeto também pode ser executa
 ### Pré-requisitos
 
 Python 3.14.3
-=======
+
 (Testado com Python 3.14.3)
 
 Verificar instalação:
@@ -162,7 +159,7 @@ pip install -r requirements.txt
 ---
 
 ### 1. Iniciar a API
-=======
+
 Execute no terminal:
 
 ```
@@ -191,7 +188,7 @@ Em outro terminal:
 ```
 python main.py
 ```
-=======
+
 Abra outro terminal na mesma pasta do projeto e execute:
 
 python main.py
@@ -257,18 +254,8 @@ Prioridade padrão:
 | financeiro | media      |
 | suporte    | baixa      |
 | melhoria   | baixa      |
-=======
-Tipo	Fila
-incidente	N1-INCIDENTES
-suporte	N1-SUPORTE
-financeiro	BACKOFFICE-FIN
-melhoria	PRODUTO
-Prioridade padrão
-Tipo	Prioridade
-incidente	alta
-financeiro	media
-suporte	baixa
-melhoria	baixa
+
+
 Banco de dados SQLite
 
 ---
@@ -295,7 +282,7 @@ Campos:
 * tentativas
 * ultimo_erro
 * timestamp_processamento
-=======
+
 Campos
 Campo	Descrição
 id	Identificador da solicitação
@@ -318,9 +305,9 @@ processamento.log
 Exemplo:
 
 ```
-id=1001 | lendo linha
-id=1001 | enviando para API
-id=1001 | sucesso | status=200
+id1001 | lendo linha
+id1001 | enviando para API
+id1001 | sucesso | status200
 ```
 
 ---
