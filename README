@@ -1,4 +1,3 @@
-README (versão revisada e segura)
 Processador de Solicitações CSV
 
 Projeto desenvolvido para processar solicitações de clientes a partir de um arquivo CSV, validar os dados, classificar prioridade e encaminhar as solicitações para uma API REST.
@@ -11,7 +10,7 @@ Rastreabilidade → histórico de sucesso e erros
 
 Logs detalhados de execução
 
-Arquitetura da solução
+Arquitetura da solução:
 
 ![Fluxograma do Sistema](docs/fluxograma.jpg)
 
@@ -54,9 +53,8 @@ Estrutura do projeto
 ├── docs
 │   └── fluxograma.jpg
 │
-├── src
-│   ├── api_mock.py
-│   └── main.py
+├── api_mock.py
+├── main.py
 │
 ├── solicitacoes.csv
 ├── processamento.db
@@ -88,15 +86,15 @@ docker compose up --build
 
 O Docker irá:
 
-Construir a imagem do projeto
+construir a imagem do projeto
 
-Subir o container da API
+subir o container da API
 
-Executar o script de processamento
+executar o script de processamento
 
-Enviar os dados do CSV para a API
+enviar os dados do CSV para a API
 
-Registrar os resultados no banco SQLite
+registrar os resultados no banco SQLite
 
 Acessar documentação da API
 
@@ -112,7 +110,8 @@ Caso não possua Docker instalado, o projeto pode ser executado manualmente.
 
 Pré-requisitos
 
-Python 3.10+ (testado com Python 3.14.3)
+Python 3.10 ou superior
+(Testado com Python 3.14.3)
 
 Verificar instalação:
 
@@ -124,11 +123,7 @@ Dentro da pasta do projeto execute:
 pip install -r requirements.txt
 1️⃣ Iniciar a API
 
-Entre na pasta src:
-
-cd src
-
-Execute a API com:
+Execute no terminal:
 
 python -m uvicorn api_mock:app --reload
 
@@ -136,14 +131,14 @@ A API ficará disponível em:
 
 http://127.0.0.1:8000
 
-Swagger:
+Swagger da API:
 
 http://127.0.0.1:8000/docs
 2️⃣ Executar o processamento do CSV
 
-Abra outro terminal na raiz do projeto e execute:
+Abra outro terminal na mesma pasta do projeto e execute:
 
-python src/main.py
+python main.py
 
 O script irá:
 
@@ -167,7 +162,7 @@ Regras de validação
 
 O sistema valida:
 
-Campos obrigatórios:
+Campos obrigatórios
 
 id
 
@@ -179,7 +174,7 @@ descricao
 
 created_at
 
-Validações adicionais:
+Validações adicionais
 
 email com formato válido
 
@@ -200,9 +195,7 @@ incidente	N1-INCIDENTES
 suporte	N1-SUPORTE
 financeiro	BACKOFFICE-FIN
 melhoria	PRODUTO
-
-Prioridade padrão:
-
+Prioridade padrão
 Tipo	Prioridade
 incidente	alta
 financeiro	media
@@ -217,9 +210,7 @@ processamento.db
 Tabela utilizada:
 
 processamento
-
-Campos:
-
+Campos
 Campo	Descrição
 id	Identificador da solicitação
 status	Resultado do processamento
