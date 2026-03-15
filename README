@@ -1,8 +1,7 @@
-<<<<<<< HEAD
 # Processador de Solicitações CSV
 =======
 Processador de Solicitações CSV
->>>>>>> 2d8b9c63cb14190fd00590efe3b2bf580d3e300b
+
 
 Projeto desenvolvido para processar solicitações de clientes a partir de um arquivo **CSV**, validar os dados, classificar prioridade e encaminhar as solicitações para uma **API REST**.
 
@@ -10,7 +9,6 @@ O sistema também registra o status de processamento em um banco **SQLite**, gar
 
 ---
 
-<<<<<<< HEAD
 # Arquitetura da solução
 =======
 Rastreabilidade → histórico de sucesso e erros
@@ -18,7 +16,6 @@ Rastreabilidade → histórico de sucesso e erros
 Logs detalhados de execução
 
 Arquitetura da solução:
->>>>>>> 2d8b9c63cb14190fd00590efe3b2bf580d3e300b
 
 ![Fluxograma do Sistema](docs/fluxograma.jpg)
 
@@ -55,13 +52,6 @@ Etapas:
 
 ```
 .
-<<<<<<< HEAD
-├── api_mock.py           # API mock em FastAPI
-├── main.py               # Script principal de processamento do CSV
-├── solicitacoes.csv      # Arquivo de entrada
-├── processamento.db      # Banco SQLite com histórico de execução
-├── processamento.log     # Logs de execução
-=======
 ├── docs
 │   └── fluxograma.jpg
 │
@@ -71,7 +61,6 @@ Etapas:
 ├── solicitacoes.csv
 ├── processamento.db
 ├── processamento.log
->>>>>>> 2d8b9c63cb14190fd00590efe3b2bf580d3e300b
 │
 ├── Dockerfile
 ├── docker-compose.yml
@@ -110,7 +99,7 @@ docker compose up --build
 
 O Docker irá:
 
-<<<<<<< HEAD
+
 * construir as imagens
 * subir a API
 * executar o script de processamento
@@ -135,7 +124,6 @@ registrar os resultados no banco SQLite
 Acessar documentação da API
 
 Após subir os containers:
->>>>>>> 2d8b9c63cb14190fd00590efe3b2bf580d3e300b
 
 ```
 http://localhost:8000/docs
@@ -149,14 +137,12 @@ Essa página contém o **Swagger da API** para testes.
 
 Caso o usuário não possua Docker instalado, o projeto também pode ser executado manualmente.
 
-<<<<<<< HEAD
+
 ### Pré-requisitos
 
 Python 3.14.3
 =======
-Python 3.10 ou superior
 (Testado com Python 3.14.3)
->>>>>>> 2d8b9c63cb14190fd00590efe3b2bf580d3e300b
 
 Verificar instalação:
 
@@ -172,13 +158,12 @@ python --version
 pip install -r requirements.txt
 ```
 
-<<<<<<< HEAD
+
 ---
 
 ### 1. Iniciar a API
 =======
 Execute no terminal:
->>>>>>> 2d8b9c63cb14190fd00590efe3b2bf580d3e300b
 
 ```
 python -m uvicorn api_mock:app --reload
@@ -196,7 +181,7 @@ Swagger da API:
 http://127.0.0.1:8000/docs
 ```
 
-<<<<<<< HEAD
+
 ---
 
 ### 2. Executar o processamento do CSV
@@ -210,7 +195,6 @@ python main.py
 Abra outro terminal na mesma pasta do projeto e execute:
 
 python main.py
->>>>>>> 2d8b9c63cb14190fd00590efe3b2bf580d3e300b
 
 O script irá:
 
@@ -257,7 +241,7 @@ Validações adicionais
 
 Tipo da solicitação → Fila de atendimento
 
-<<<<<<< HEAD
+
 | Tipo       | Fila           |
 | ---------- | -------------- |
 | incidente  | N1-INCIDENTES  |
@@ -286,7 +270,6 @@ financeiro	media
 suporte	baixa
 melhoria	baixa
 Banco de dados SQLite
->>>>>>> 2d8b9c63cb14190fd00590efe3b2bf580d3e300b
 
 ---
 
@@ -302,7 +285,7 @@ Tabela:
 
 ```
 processamento
-<<<<<<< HEAD
+
 ```
 
 Campos:
@@ -321,7 +304,6 @@ tentativas	Número de tentativas de envio
 ultimo_erro	Mensagem de erro (se houver)
 timestamp_processamento	Data/hora do processamento
 Como consultar o banco SQLite
->>>>>>> 2d8b9c63cb14190fd00590efe3b2bf580d3e300b
 
 ---
 
