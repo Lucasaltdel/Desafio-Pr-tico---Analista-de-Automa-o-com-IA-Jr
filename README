@@ -1,51 +1,49 @@
-# Processador de Solicitações CSV
+#  Processador de Solicitações CSV
 
-Projeto desenvolvido para processar solicitações de clientes a partir de um arquivo **CSV**, validar os dados, classificar prioridade e encaminhar as solicitações para uma **API REST**.
+Projeto desenvolvido para **processar solicitações de clientes a partir de um arquivo CSV**, realizar **validação dos dados**, **classificar prioridade** e **encaminhar as solicitações para uma API REST**.
 
-O sistema também registra o status de processamento em um banco **SQLite**, garantindo **idempotência** (não processar registros duplicados) e **rastreabilidade de erros**.
+O sistema também registra o status de processamento em um banco **SQLite**, garantindo:
+
+-  **Idempotência** — evita processamento duplicado  
+-  **Rastreabilidade** — histórico de sucesso e erros  
+-  **Logs detalhados** de execução  
 
 ---
 
-# Arquitetura da solução
-
-Rastreabilidade → histórico de sucesso e erros
-
-Logs detalhados de execução
-
-Arquitetura da solução:
+#  Arquitetura da Solução
 
 ![Fluxograma do Sistema](docs/fluxograma.jpg)
 
-Fluxo do sistema:
+### Fluxo do sistema
 
-
-
+```
 CSV → Script de Processamento → Validação → Classificação → API → Registro no SQLite
+```
 
-Etapas:
+### Etapas do processamento
 
 1. Leitura do arquivo `solicitacoes.csv`
 2. Validação dos dados obrigatórios
 3. Classificação de fila e prioridade
-4. Envio para a API mock
-5. Registro do resultado no banco SQLite
-6. Registro de logs do processamento
+4. Envio das solicitações para a API mock
+5. Registro do resultado no banco **SQLite**
+6. Registro de **logs do processamento**
 
 ---
 
-# Tecnologias utilizadas
+#  Tecnologias Utilizadas
 
-* Python 3.14.3
-* FastAPI
-* SQLite
-* Docker
-* Docker Compose
-* Requests
-* Logging
+- Python **3.14.3**
+- FastAPI
+- SQLite
+- Docker
+- Docker Compose
+- Requests
+- Logging
 
 ---
 
-# Estrutura do projeto
+#  Estrutura do Projeto
 
 ```
 .
@@ -69,9 +67,9 @@ Etapas:
 
 ---
 
-# Como executar o projeto
+#  Como Executar o Projeto
 
-## Opção 1 — Executar com Docker (Recomendado)
+##  Opção 1 — Executar com Docker (Recomendado)
 
 ### Pré-requisitos
 
@@ -79,90 +77,75 @@ Instalar o Docker:
 
 https://www.docker.com/products/docker-desktop/
 
-Verificar instalação:
+Verificar a instalação:
 
-```
+```bash
 docker --version
 docker compose version
 ```
 
+---
+
 ### Executar o projeto
 
-Dentro da pasta do projeto:
+Dentro da pasta do projeto execute:
 
-```
+```bash
 docker compose up --build
 ```
 
 O Docker irá:
 
-
-* construir as imagens
-* subir a API
-* executar o script de processamento
-* enviar os dados para a API
+- construir as imagens
+- subir a **API**
+- executar o **script de processamento**
+- enviar os dados do CSV para a API
 
 ---
 
-### Acessar a documentação da API
+###  Documentação da API
 
-Após subir o container:
-
-construir a imagem do projeto
-
-subir o container da API
-
-executar o script de processamento
-
-enviar os dados do CSV para a API
-
-registrar os resultados no banco SQLite
-
-Acessar documentação da API
-
-Após subir os containers:
+Após iniciar os containers, a documentação estará disponível em:
 
 ```
 http://localhost:8000/docs
 ```
 
-Essa página contém o **Swagger da API** para testes.
+Essa página contém o **Swagger da API**, permitindo testar os endpoints.
 
 ---
 
-# Opção 2 — Executar sem Docker
+#  Opção 2 — Executar sem Docker
 
 Caso o usuário não possua Docker instalado, o projeto também pode ser executado manualmente.
 
+---
 
-### Pré-requisitos
+## Pré-requisitos
 
-Python 3.14.3
+- Python **3.14.3**
 
-(Testado com Python 3.14.3)
+Verificar a instalação:
 
-Verificar instalação:
-
-```
+```bash
 python --version
 ```
 
 ---
 
-### Instalar dependências
+## Instalar dependências
 
-```
+```bash
 pip install -r requirements.txt
 ```
 
-
 ---
 
-### 1. Iniciar a API
+## 1️ Iniciar a API
 
 Execute no terminal:
 
-```
+```bash
 python -m uvicorn api_mock:app --reload
 ```
 
@@ -172,95 +155,86 @@ A API ficará disponível em:
 http://127.0.0.1:8000
 ```
 
-Swagger da API:
+Documentação Swagger:
 
 ```
 http://127.0.0.1:8000/docs
 ```
 
-
 ---
 
-### 2. Executar o processamento do CSV
+## 2️ Executar o processamento do CSV
 
-Em outro terminal:
+Em **outro terminal**, na mesma pasta do projeto:
 
-```
+```bash
 python main.py
 ```
-
-Abra outro terminal na mesma pasta do projeto e execute:
-
-python main.py
 
 O script irá:
 
-* ler o arquivo CSV
-* validar os dados
-* enviar para a API
-* registrar o resultado no banco SQLite
+- ler o arquivo **CSV**
+- validar os dados
+- enviar as solicitações para a API
+- registrar o resultado no banco **SQLite**
 
 ---
 
-# Estrutura do CSV
+#  Estrutura do CSV
 
 Exemplo de entrada:
 
-```
+```csv
 id,cliente,tipo,prioridade,descricao,email,telefone,created_at
 1001,Empresa A,incidente,alta,Erro no sistema,cliente@email.com,11999999999,2026-03-12T10:00:00
 ```
 
 ---
 
-# Regras de validação
+# ✔ Regras de Validação
 
-O sistema valida:
+Campos obrigatórios:
 
-Campos obrigatórios
+- `id`
+- `cliente`
+- `tipo`
+- `descricao`
+- `created_at`
 
-* id
-* cliente
-* tipo
-* descricao
-* created_at
+Validações adicionais:
 
-Validações adicionais
-
-* email válido
-* telefone apenas números
-* incidente precisa de pelo menos um contato (email ou telefone)
-* data em formato ISO
+- Email deve ser **válido**
+- Telefone deve conter **apenas números**
+- Incidentes devem possuir **pelo menos um contato (email ou telefone)**
+- Data deve estar no **formato ISO**
 
 ---
 
-# Classificação automática
+#  Classificação Automática
 
-Tipo da solicitação → Fila de atendimento
+### Tipo da solicitação → Fila de atendimento
 
-
-| Tipo       | Fila           |
-| ---------- | -------------- |
-| incidente  | N1-INCIDENTES  |
-| suporte    | N1-SUPORTE     |
+| Tipo | Fila |
+|-----|-----|
+| incidente | N1-INCIDENTES |
+| suporte | N1-SUPORTE |
 | financeiro | BACKOFFICE-FIN |
-| melhoria   | PRODUTO        |
-
-Prioridade padrão:
-
-| Tipo       | Prioridade |
-| ---------- | ---------- |
-| incidente  | alta       |
-| financeiro | media      |
-| suporte    | baixa      |
-| melhoria   | baixa      |
-
-
-Banco de dados SQLite
+| melhoria | PRODUTO |
 
 ---
 
-# Banco de dados
+### Prioridade padrão
+
+| Tipo | Prioridade |
+|-----|-----|
+| incidente | alta |
+| financeiro | média |
+| suporte | baixa |
+| melhoria | baixa |
+
+---
+
+#  Banco de Dados
 
 O histórico de execução é salvo em:
 
@@ -272,37 +246,29 @@ Tabela:
 
 ```
 processamento
-
 ```
 
-Campos:
+### Estrutura
 
-* id
-* status
-* tentativas
-* ultimo_erro
-* timestamp_processamento
-
-Campos
-Campo	Descrição
-id	Identificador da solicitação
-status	Resultado do processamento
-tentativas	Número de tentativas de envio
-ultimo_erro	Mensagem de erro (se houver)
-timestamp_processamento	Data/hora do processamento
-Como consultar o banco SQLite
+| Campo | Descrição |
+|------|------|
+| id | Identificador da solicitação |
+| status | Resultado do processamento |
+| tentativas | Número de tentativas de envio |
+| ultimo_erro | Mensagem de erro (se houver) |
+| timestamp_processamento | Data/hora do processamento |
 
 ---
 
-# Logs
+#  Logs
 
-Logs são gravados em:
+Os logs são gravados em:
 
 ```
 processamento.log
 ```
 
-Exemplo:
+Exemplo de log:
 
 ```
 id1001 | lendo linha
@@ -312,7 +278,7 @@ id1001 | sucesso | status200
 
 ---
 
-# Observação sobre Docker
+#  Observação sobre Docker
 
 No ambiente Docker os containers se comunicam pelo **nome do serviço**.
 
@@ -330,6 +296,6 @@ http://localhost:8000
 
 ---
 
-# Autor
+#  Autor
 
-Projeto desenvolvido por Lucas Nunes.
+Projeto desenvolvido por **Lucas Nunes**.
