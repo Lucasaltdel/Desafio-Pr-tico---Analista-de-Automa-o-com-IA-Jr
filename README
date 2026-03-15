@@ -1,53 +1,66 @@
-# Processador de Solicitações CSV
+README (versão revisada e segura)
+Processador de Solicitações CSV
 
-Projeto desenvolvido para processar solicitações de clientes a partir de um arquivo **CSV**, validar os dados, classificar prioridade e encaminhar as solicitações para uma **API REST**.
+Projeto desenvolvido para processar solicitações de clientes a partir de um arquivo CSV, validar os dados, classificar prioridade e encaminhar as solicitações para uma API REST.
 
-O sistema também registra o status de processamento em um banco **SQLite**, garantindo **idempotência** (não processar registros duplicados) e **rastreabilidade de erros**.
+O sistema também registra o status de processamento em um banco SQLite, garantindo:
 
----
+Idempotência → evita processar registros duplicados
 
-# Arquitetura da solução
+Rastreabilidade → histórico de sucesso e erros
+
+Logs detalhados de execução
+
+Arquitetura da solução
 
 ![Fluxograma do Sistema](docs/fluxograma.jpg)
 
 Fluxo do sistema:
 
-
-
 CSV → Script de Processamento → Validação → Classificação → API → Registro no SQLite
 
-Etapas:
+Etapas executadas:
 
-1. Leitura do arquivo `solicitacoes.csv`
-2. Validação dos dados obrigatórios
-3. Classificação de fila e prioridade
-4. Envio para a API mock
-5. Registro do resultado no banco SQLite
-6. Registro de logs do processamento
+Leitura do arquivo solicitacoes.csv
 
----
+Validação dos dados obrigatórios
 
-# Tecnologias utilizadas
+Classificação automática de fila e prioridade
 
-* Python 3.14.3
-* FastAPI
-* SQLite
-* Docker
-* Docker Compose
-* Requests
-* Logging
+Envio da solicitação para a API
 
----
+Registro do resultado no banco SQLite
 
-# Estrutura do projeto
+Registro de logs do processamento
 
-```
+Tecnologias utilizadas
+
+Python 3.14.3
+
+FastAPI
+
+SQLite
+
+Docker
+
+Docker Compose
+
+Requests
+
+Logging
+
+Estrutura do projeto
 .
-├── api_mock.py           # API mock em FastAPI
-├── main.py               # Script principal de processamento do CSV
-├── solicitacoes.csv      # Arquivo de entrada
-├── processamento.db      # Banco SQLite com histórico de execução
-├── processamento.log     # Logs de execução
+├── docs
+│   └── fluxograma.jpg
+│
+├── src
+│   ├── api_mock.py
+│   └── main.py
+│
+├── solicitacoes.csv
+├── processamento.db
+├── processamento.log
 │
 ├── Dockerfile
 ├── docker-compose.yml
@@ -55,194 +68,165 @@ Etapas:
 ├── .dockerignore
 │
 └── README.md
-```
+Como executar o projeto
+Opção 1 — Executar com Docker (Recomendado)
+Pré-requisitos
 
----
-
-# Como executar o projeto
-
-## Opção 1 — Executar com Docker (Recomendado)
-
-### Pré-requisitos
-
-Instalar o Docker:
+Instalar Docker Desktop:
 
 https://www.docker.com/products/docker-desktop/
 
 Verificar instalação:
 
-```
 docker --version
 docker compose version
-```
+Executar o projeto
 
-### Executar o projeto
+Dentro da pasta do projeto execute:
 
-Dentro da pasta do projeto:
-
-```
 docker compose up --build
-```
 
 O Docker irá:
 
-* construir as imagens
-* subir a API
-* executar o script de processamento
-* enviar os dados para a API
+Construir a imagem do projeto
 
----
+Subir o container da API
 
-### Acessar a documentação da API
+Executar o script de processamento
 
-Após subir o container:
+Enviar os dados do CSV para a API
 
-```
+Registrar os resultados no banco SQLite
+
+Acessar documentação da API
+
+Após subir os containers:
+
 http://localhost:8000/docs
-```
 
-Essa página contém o **Swagger da API** para testes.
+Essa página contém o Swagger da API para testes.
 
----
+Opção 2 — Executar sem Docker
 
-# Opção 2 — Executar sem Docker
+Caso não possua Docker instalado, o projeto pode ser executado manualmente.
 
-Caso o usuário não possua Docker instalado, o projeto também pode ser executado manualmente.
+Pré-requisitos
 
-### Pré-requisitos
-
-Python 3.14.3
+Python 3.10+ (testado com Python 3.14.3)
 
 Verificar instalação:
 
-```
 python --version
-```
+Instalar dependências
 
----
+Dentro da pasta do projeto execute:
 
-### Instalar dependências
-
-```
 pip install -r requirements.txt
-```
+1️⃣ Iniciar a API
 
----
+Entre na pasta src:
 
-### 1. Iniciar a API
+cd src
 
-```
-uvicorn api_mock:app --reload
-```
+Execute a API com:
+
+python -m uvicorn api_mock:app --reload
 
 A API ficará disponível em:
 
-```
 http://127.0.0.1:8000
-```
 
 Swagger:
 
-```
 http://127.0.0.1:8000/docs
-```
+2️⃣ Executar o processamento do CSV
 
----
+Abra outro terminal na raiz do projeto e execute:
 
-### 2. Executar o processamento do CSV
-
-Em outro terminal:
-
-```
-python main.py
-```
+python src/main.py
 
 O script irá:
 
-* ler o arquivo CSV
-* validar os dados
-* enviar para a API
-* registrar o resultado no banco SQLite
+ler o arquivo CSV
 
----
+validar os dados
 
-# Estrutura do CSV
+classificar as solicitações
+
+enviar para a API
+
+registrar o resultado no banco SQLite
+
+Estrutura do CSV
 
 Exemplo de entrada:
 
-```
 id,cliente,tipo,prioridade,descricao,email,telefone,created_at
 1001,Empresa A,incidente,alta,Erro no sistema,cliente@email.com,11999999999,2026-03-12T10:00:00
-```
-
----
-
-# Regras de validação
+Regras de validação
 
 O sistema valida:
 
 Campos obrigatórios:
 
-* id
-* cliente
-* tipo
-* descricao
-* created_at
+id
+
+cliente
+
+tipo
+
+descricao
+
+created_at
 
 Validações adicionais:
 
-* email válido
-* telefone apenas números
-* incidente precisa de pelo menos um contato (email ou telefone)
-* data em formato ISO
+email com formato válido
 
----
+telefone apenas números
 
-# Classificação automática
+telefone mínimo de 10 dígitos
+
+incidentes precisam de email ou telefone
+
+data no formato ISO
+
+Classificação automática
 
 Tipo da solicitação → Fila de atendimento
 
-| Tipo       | Fila           |
-| ---------- | -------------- |
-| incidente  | N1-INCIDENTES  |
-| suporte    | N1-SUPORTE     |
-| financeiro | BACKOFFICE-FIN |
-| melhoria   | PRODUTO        |
+Tipo	Fila
+incidente	N1-INCIDENTES
+suporte	N1-SUPORTE
+financeiro	BACKOFFICE-FIN
+melhoria	PRODUTO
 
 Prioridade padrão:
 
-| Tipo       | Prioridade |
-| ---------- | ---------- |
-| incidente  | alta       |
-| financeiro | media      |
-| suporte    | baixa      |
-| melhoria   | baixa      |
+Tipo	Prioridade
+incidente	alta
+financeiro	media
+suporte	baixa
+melhoria	baixa
+Banco de dados SQLite
 
----
+O histórico de processamento é salvo em:
 
-# Banco de dados
-
-O histórico de execução é salvo em:
-
-```
 processamento.db
-```
 
-Tabela:
+Tabela utilizada:
 
-```
 processamento
-```
 
 Campos:
 
-* id
-* status
-* tentativas
-* ultimo_erro
-* timestamp_processamento
-
-Para visualizar os dados processados é possível utilizar o SQLite CLI.
+Campo	Descrição
+id	Identificador da solicitação
+status	Resultado do processamento
+tentativas	Número de tentativas de envio
+ultimo_erro	Mensagem de erro (se houver)
+timestamp_processamento	Data/hora do processamento
+Como consultar o banco SQLite
 
 Abrir o banco:
 
@@ -252,7 +236,7 @@ Listar tabelas:
 
 .tables
 
-Visualizar registros:
+Consultar registros:
 
 .headers on
 .mode column
@@ -262,45 +246,29 @@ Exemplo de saída:
 
 id    status    tentativas    ultimo_erro    timestamp_processamento
 1001  sucesso   1             null           2026-03-13T19:30:21
-
----
-
-# Logs
+Logs do sistema
 
 Logs são gravados em:
 
-```
 processamento.log
-```
 
-Exemplo:
+Exemplo de log:
 
-```
-id=1001 | lendo linha
+id=1001 | iniciando validação
+id=1001 | classificado | queue=N1-INCIDENTES
 id=1001 | enviando para API
-id=1001 | sucesso | status=200
-```
+id=1001 | status=sucesso | tentativas=1
+Observação sobre Docker
 
----
-
-# Observação sobre Docker
-
-No ambiente Docker os containers se comunicam pelo **nome do serviço**.
+No ambiente Docker os containers se comunicam pelo nome do serviço.
 
 Por isso a API é acessada internamente como:
 
-```
 http://api_mock:8000
-```
 
 Enquanto externamente pode ser acessada via:
 
-```
 http://localhost:8000
-```
+Autor
 
----
-
-# Autor
-
-Projeto desenvolvido por Lucas Nunes.
+Projeto desenvolvido por Lucas Nunes
