@@ -75,6 +75,9 @@ CSV → Script de Processamento → Validação → Classificação → API → 
 
 Instalar o Docker:
 
+Docker 29.2.1
+Docker Yaml 3.9
+
 https://www.docker.com/products/docker-desktop/
 
 Verificar a instalação:
