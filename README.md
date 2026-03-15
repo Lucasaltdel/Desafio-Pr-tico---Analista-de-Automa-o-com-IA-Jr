@@ -191,7 +191,7 @@ id,cliente,tipo,prioridade,descricao,email,telefone,created_at
 
 ---
 
-# ✔ Regras de Validação
+#  Regras de Validação
 
 Campos obrigatórios:
 
